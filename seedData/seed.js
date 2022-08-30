@@ -2,17 +2,17 @@
 
  const {sauces, items} = require('./seedData.js');
 
- const {sequelize} = require('../db');
- const {Item} = require('../index');
+ const {db, Items} = require('../db');
+ 
 
  const seed = async () => {
 
      try {
          // drop and recreate tables per model definitions
-        await sequelize.sync({ force: true });
+        await db.sync({ force: true });
     
 //         // insert data
-         await Promise.all(items.map(item => Item.create(item)));
+        await Promise.all(items.map(item => Items.create(item)));
 
         console.log("db populated!");
     } catch (error) {
