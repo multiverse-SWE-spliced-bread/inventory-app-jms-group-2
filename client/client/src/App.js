@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 function App() {
 
   const [allItems, setAllItems] = useState([])
+  const [item, setItem] = useState([])
 
   async function getItems() {
     const res = await fetch("http://localhost:3000/items")
