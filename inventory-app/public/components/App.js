@@ -19,7 +19,7 @@ export const App = () => {
 	//page errors
 	async function fetchPages(){
 		try {
-			const response = await fetch(`${apiURL}/wiki`);
+			const response = await fetch(`${apiURL}/items`);
 			const pagesData = await response.json();
 			setPages(pagesData);
 		} catch (err) {

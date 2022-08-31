@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
+const router = require('./inventory-app/server/routes')
 
-app.use('/users/', require('server/routes/usersRoute'))
 
 app.get('/', (req, res) => {
     res.send('Hello!')

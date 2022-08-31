@@ -2,7 +2,7 @@
 
  const {sauces, items} = require('./seedData.js');
 
- const {db, Items} = require('../db');
+ const {db, Items} = require('../../db');
  
 
  const seed = async () => {
