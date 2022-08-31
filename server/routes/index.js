@@ -1,6 +1,5 @@
-const express = require("express")
-const router = express.Router()
+const {itemsRt} = require("./items.js")
 
-router.use('/item', require('./items'))
 
-module.exports = router
+
+module.exports = {itemsRt}
