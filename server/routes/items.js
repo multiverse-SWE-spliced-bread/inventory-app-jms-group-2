@@ -9,8 +9,8 @@ itemsRt.get("/", async (req, res) => {
 })
 
 // GET /items/:itemID
-itemsRt.get("/:itemID", async (req, res) => {
-    const item = await Items.findByPK(req.params.itemID)
+itemsRt.get("/:id", async (req, res) => {
+    const item = await Items.findByPK(req.params.id)
     res.send(item)
     })
 
