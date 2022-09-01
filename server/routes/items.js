@@ -10,7 +10,7 @@ itemsRouter.get("/", async (req, res) => {
 
 // GET /items/:id
 itemsRouter.get("/:id", async (req, res) => {
-    const item = await Items.findByPK(req.params.id)
+    const item = await Items.findByPk(req.params.id)
     res.send(item)
     })
 

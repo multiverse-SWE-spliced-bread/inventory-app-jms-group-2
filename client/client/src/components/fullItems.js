@@ -11,12 +11,15 @@ export const Items = () => {
         console.log(data)
         setAllItems(data)
         console.log(allItems)
+        setItem([])
     }
 
     async function oneItem (id) {
       const res = await fetch(`http://localhost:3000/items/${id}`)
       const data = await res.json()
       setItem(data)
+      console.log(data.title)
+      setAllItems([])
 
     }
 
@@ -30,6 +33,12 @@ export const Items = () => {
     <div>
         Hello World!
         {allItems.map(items => <div onClick={() => oneItem(items.id)}>{items.title}</div>)}
+        <div className='title'>{Item.title}</div>
+        <div className='description'>{Item.description}</div>
+        <div className='price'>{Item.price}</div>
+        <div className='category'>{Item.category}</div>
+        <div className='image'>{Item.image}</div>
+        <button onClick={() => itemsList()}>Go Back</button>
     </div>
     )
   }
