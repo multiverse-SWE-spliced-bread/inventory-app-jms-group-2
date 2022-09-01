@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+
 export const AddForm = () => {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
@@ -26,7 +27,9 @@ export const AddForm = () => {
     // setContent('')
   }
   
-  function pageSubmitted() { alert(':tada: Page submitted succesfully! :tada:')}
+  function pageSubmitted() { 
+    alert('Page submitted succesfully! :)')
+  }
 
 
         
@@ -35,17 +38,44 @@ export const AddForm = () => {
   return (
     <main>
       <form onSubmit={handleSubmit}>
-        <h1>inventory</h1>
+        <h2>Inventory</h2>
         <p>Please fill out this form</p>
-        <label></label>
-        <input type='text' placeholder='Title' value= {title} onChange={e => setTitle(e.target.value)}/>
-        <input type='text' placeholder='description' value={description} onChange={e => setDescription(e.target.value)}/>
-        <input type='text' placeholder='price' value={price} onChange={e => setPrice(e.target.value)}/>
-        <input type='text' placeholder='category' value={category} onChange={e => setCategory(e.target.value)}/>
-        <input type='text' placeholder='image' value={image} onChange={e => setImage(e.target.value)}/>
-        <br></br>
-        <button onClick={pageSubmitted}>submit</button>
+
+        {/* Description box */}
+        <div>
+          <input type='text' placeholder='Description' value={description} onChange={e => setDescription(e.target.value)}/>
+        </div>
+
+        {/* Price box */}
+        <div>
+          <input type='text' placeholder='Price' value={price} onChange={e => setPrice(e.target.value)}/>
+        </div>
+
+        {/* Select Category dropdown */}
+        <div>
+          <select>
+            <option>Select Category</option>
+            <option>Clothing & Footwear</option>
+            <option>Beauty</option>
+            <option>Jewellery</option>
+            <option>Technology</option>
+            <option>Books</option>
+            <option>Children</option>
+            <option>Other</option>,
+          </select> 
+        </div>
+
+          {/* Select category box */}
+        {/* <div>
+          <input type='text' placeholder='Category' value={category} onChange={e => setCategory(e.target.value)}/>
+        </div> */}
+
+        <div>
+          <input type='text' placeholder='Image' value={image} onChange={e => setImage(e.target.value)}/>  
+        </div>
+
+        <button onClick={pageSubmitted}>Submit</button>
       </form>
     </main>
-    );
-  }
+  );
+}
