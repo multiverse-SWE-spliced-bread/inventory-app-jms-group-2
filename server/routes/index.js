@@ -1,6 +1,4 @@
-const express = require("express")
-const router = express.Router()
+const itemsRouter = require('./items')
+// const saucesRouter = require('./sauces')
 
-router.use('/item', require('./items'))
-
-module.exports = router
+module.exports = { itemsRouter }

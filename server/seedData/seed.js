@@ -1,8 +1,8 @@
 //This is a snippet for populating the database with seed data.
 
 const {sauces, items} = require('./seedData.js');
-
-const {db, Items} = require('../database/db');
+const Items = require('../database/Items')
+const { db } = require('../database/');
 
 
 const seed = async () => {
@@ -20,4 +20,5 @@ const seed = async () => {
     }
 }
 
-seed();
+
+module.exports = seed

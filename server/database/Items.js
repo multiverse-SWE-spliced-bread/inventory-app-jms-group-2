@@ -1,15 +1,8 @@
-const { Sequelize, DataTypes } = require('sequelize');
-const path = require('path');
-
-const db = new Sequelize({
-    dialect: 'sqlite',
-    storage:  ('./db.sqlite'),
-    logging: false
-})
+const { db, DataTypes } = require('./')
 
 const Items = db.define('items',{
     title: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
     
     },
     description: {
@@ -29,6 +22,4 @@ const Items = db.define('items',{
 
 })
 
-
-
-module.exports = { Items, db }
+module.exports = Items
