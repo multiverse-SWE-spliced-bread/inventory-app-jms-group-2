@@ -7,10 +7,10 @@ const { itemsRouter } = require('./routes')
 const port = 3000
 
 seed()
-
+app.use(express.json())
 app.use('/items', itemsRouter)
 
-app.use(express.json())
+
 
 app.get('/', (req, res) => {
     res.send('Hello!')

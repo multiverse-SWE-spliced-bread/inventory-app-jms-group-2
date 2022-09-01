@@ -13,7 +13,12 @@ itemsRouter.get("/:id", async (req, res) => {
     const item = await Items.findByPk(req.params.id)
     res.send(item)
     })
+// POST /items
 
+itemsRouter.post("/", async (req, res) => {
+    await Items.create(req.body)
+    res.send("Item created")
+})
 module.exports = itemsRouter
 
 
