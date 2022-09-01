@@ -1,7 +1,6 @@
 const express = require("express")
 const itemsRouter = express.Router()
 const Items = require("../database/Items.js")
-const { Items } = require("../database/db.js")
 
 // GET /items
 itemsRouter.get("/", async (req, res) => {

@@ -1,6 +1,2 @@
-// import {singleInventory} from './singleInventory'
+import React, {useEffect, useState} from "react";
 
-// export const SingleItem = () => {
-
-    
-// }
