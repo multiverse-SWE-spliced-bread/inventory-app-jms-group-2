@@ -1,7 +1,6 @@
 const express = require('express')
 const cors = require('cors')
 const app = express()
-<<<<<<< HEAD
 app.use(cors())
 const seed = require('./seedData/seed')
 const { itemsRouter } = require('./routes')
@@ -10,12 +9,8 @@ const port = 3000
 seed()
 
 app.use('/items', itemsRouter)
-=======
-const {itemsRt} = require('./routes')
 
 app.use(express.json())
-app.use('/item', itemsRt)
->>>>>>> master
 
 app.get('/', (req, res) => {
     res.send('Hello!')
