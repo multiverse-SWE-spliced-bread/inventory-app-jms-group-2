@@ -8,10 +8,13 @@ function App() {
 
   return (
     <div>
-     <Items />
-     <button onClick={() => setForms(!forms)}>Click here to add new Item</button>
-     <button onClick={() => setForms(!forms)}>Click here to add update Item</button>
+
+      <h1>The JMS Store</h1>
      {forms ? <AddForm /> : null}
+     <button onClick={() => setForms(!forms)}>Sell an item</button>
+     {forms ? <AddForm /> : null}
+     <Items />
+     <button onClick={() => setForms(!forms)}>Click here to add update Item</button>
      {forms ? <Updateform /> : null}
      {/* <AddForm /> */}
     </div>
