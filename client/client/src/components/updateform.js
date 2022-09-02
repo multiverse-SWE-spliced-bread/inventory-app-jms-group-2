@@ -31,7 +31,7 @@ export const Updateform = () => {
     
     
   
-  updateItem(id)
+  updateItem()
   setTitle('')
   setDescription('')
   setPrice('')

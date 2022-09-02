@@ -26,7 +26,7 @@ export const Items = () => {
 
   }
 
-  function deleteItem (id) {
+  async function deleteItem (id) {
         await fetch(`http://localhost:3000/items/${id}`, {
           method: 'DELETE'
         })
