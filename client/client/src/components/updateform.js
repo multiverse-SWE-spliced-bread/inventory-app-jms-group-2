@@ -8,6 +8,7 @@ export const Updateform = () => {
   const [price, setPrice] = useState('')
   const [category, setCategory] = useState('')
   const [image, setImage] = useState('')
+  const [id, setId] = useState('')
 
   async function itemsList () {
     const res = await fetch('http://localhost:3000/items')
@@ -15,23 +16,22 @@ export const Updateform = () => {
     setAllItems(data)
   }
   
-  async function updateItem (id) {
-    await fetch(`http://localhost:3000/items/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({'title': title, 'description': description, 'price': price, 'category': category})
-    })
-}
+  
   const handleSubmit = (ev) => {
     ev.preventDefault()
-    
-    
-    
+
+    async function updateItem (id) {
+      await fetch(`http://localhost:3000/items/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({'title': title, 'description': description, 'price': price, 'category': category})
+      })
+  }
   
-  updateItem()
+  updateItem(id)
   setTitle('')
   setDescription('')
   setPrice('')
@@ -54,7 +54,7 @@ export const Updateform = () => {
       <form onSubmit={handleSubmit}>
         <h2>Inventory</h2>
         <p>Please fill out this form</p>
-        <select> 
+        <select onChange={e => setId(e.target.value)}> 
           {allItems.map(items => <option value={items.id}>{items.title}</option>)} 
         </select>
 

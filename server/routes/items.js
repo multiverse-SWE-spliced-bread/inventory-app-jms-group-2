@@ -31,7 +31,7 @@ itemsRouter.delete("/:id", async (req, res) => {
 })
 // UPDATE / items/:id
 itemsRouter.put("/:id", async (req, res) => {
-    await Items.set(req.body, {
+    await Items.update(req.body, {
         where: {
             id: req.params.id
         }

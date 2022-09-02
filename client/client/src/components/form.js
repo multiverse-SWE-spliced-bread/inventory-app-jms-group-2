@@ -52,13 +52,6 @@ export const AddForm = () => {
 
         {/* Title box */}
         <div>
-          <input type='text' placeholder='Title' value={title} onChange={e => setTitle(e.target.value)} required/>
-        </div>
-
-        <br></br>
-
-        {/* Title box */}
-        <div>
           <input type='text' placeholder='Title' value={title} onChange={e => setTitle(e.target.value)}/>
         </div>
 
