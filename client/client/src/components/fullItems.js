@@ -32,13 +32,25 @@ export const Items = () => {
 
   return (
     <div>
-      {/* system message: the client is connected! */}
       {allItems.map(items => <div onClick={() => oneItem(items.id)}><br></br>{items.title}<br></br>{items.price}</div>)}
-      <div className='title'>{Item.title}</div>
-      <div className='price'>{Item.price}</div>
+      <div
+        className='title'>{Item.title}
+      </div>
+
+      <div
+        className='price'>{Item.price}
+      </div>
+
       <img src={Item.image} height='320' width='200'/>
-      <div className='description'>{Item.description}</div>
-      <div className='category'>{Item.category}</div>
+      
+      <div
+        className='description'>{Item.description}
+      </div>
+
+      <div
+        className='category'>{Item.category}
+      </div>
+      
       <button onClick={() => itemsList()}>Go Back</button>
     </div>
   )
