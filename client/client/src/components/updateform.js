@@ -1,31 +1,37 @@
-import React, {useState} from 'react';
-import allItems from './fullItems'
+import React, {useState, useEffect} from 'react';
 
-export const updateform = () => {
+
+export const Updateform = () => {
+  const [allItems, setAllItems] = useState([])
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [price, setPrice] = useState('')
   const [category, setCategory] = useState('')
   const [image, setImage] = useState('')
 
+  async function itemsList () {
+    const res = await fetch('http://localhost:3000/items')
+    const data = await res.json()
+    setAllItems(data)
+  }
+  
+  async function updateItem (id) {
+    await fetch(`http://localhost:3000/items/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({'title': title, 'description': description, 'price': price, 'category': category})
+    })
+}
   const handleSubmit = (ev) => {
     ev.preventDefault()
-    async function updateItem (id) {
-        await fetch(`http://localhost:3000/items/${id}`, {
-          method: 'PUT',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({'title': title, 'description': description, 'price': price, 'category': category})
-        })
-        setItem([])
-        itemsList()
-    }
+    
     
     
   
-  updateItem()
+  updateItem(id)
   setTitle('')
   setDescription('')
   setPrice('')
@@ -37,7 +43,9 @@ export const updateform = () => {
     alert('item updated succesfully! :)')
   }
 
-
+  useEffect(() => {
+		itemsList();
+	}, []);
         
 
 
@@ -46,7 +54,9 @@ export const updateform = () => {
       <form onSubmit={handleSubmit}>
         <h2>Inventory</h2>
         <p>Please fill out this form</p>
-        <select> {allItems.map(items => <option value = 'id'>{items.id}</option>)} </select>
+        <select> 
+          {allItems.map(items => <option value={items.id}>{items.title}</option>)} 
+        </select>
 
         {/* Title box */}
         <div>
