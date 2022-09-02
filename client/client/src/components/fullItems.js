@@ -26,13 +26,15 @@ export const Items = () => {
 
   }
 
-  function deleteItem (id) {
+  async function deleteItem (id) {
         await fetch(`http://localhost:3000/items/${id}`, {
           method: 'DELETE'
         })
         setItem([])
         itemsList()
     }
+
+
 
 
     useEffect(() => {
@@ -43,8 +45,8 @@ export const Items = () => {
   return (
 
     <div>
-      {allItems.map(items => <div onClick={() => oneItem(items.id)}><br></br>{items.title}<br></br>{items.price}</div>)}
-      {allItems.map(items => <button className='items' onClick={() => deleteItem(items.id)}>Delete this item</button>)}
+      {allItems.map(items => <div onClick={() => oneItem(items.id)}><br></br>{items.title}<br></br>{items.price}<br></br><button className='items' onClick={() => deleteItem(items.id)}>Delete this item</button></div>)}
+      
       <div
         className='title'>{Item.title}
       </div>
@@ -60,10 +62,10 @@ export const Items = () => {
       </div>
 
       <div
-        className='category'>{Item.category}
+        className='category'>{Item.category} 
       </div>
       
-      <button onClick={() => itemsList()}>Go Back</button>
+      <button onClick={() => itemsList()}>Go Back Please</button>
     </div>
   )
 }
