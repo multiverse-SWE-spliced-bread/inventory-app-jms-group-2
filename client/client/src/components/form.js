@@ -22,13 +22,15 @@ export const AddForm = () => {
         },
         body: JSON.stringify({'title': title, 'description': description, 'price': price, 'category': category})
       // const data = await res.json()
-      
+    
     })
   }
-    postContent()
-    // setPages([...pages, {title, content}])
-    // setTitle('') 
-    // setContent('')
+  postContent()
+  setTitle('')
+  setDescription('')
+  setPrice('')
+  setCategory('')
+  setImage('')
   }
   
   // Pop up page submitted alert
@@ -55,6 +57,11 @@ export const AddForm = () => {
 
         <br></br>
 
+        {/* Title box */}
+        <div>
+          <input type='text' placeholder='Title' value={title} onChange={e => setTitle(e.target.value)}/>
+        </div>
+
         {/* Description box */}
         <div>
           <textarea type='text' placeholder='Description' value={description} wrap='hard' rows='5' onChange={e => setDescription(e.target.value)} required/>
@@ -67,15 +74,15 @@ export const AddForm = () => {
 
         {/* Select Category dropdown */}
         <div>
-          <select>
+          <select onChange={e => setCategory(e.target.value)}>
             <option>Select Category</option>
-            <option>Clothing & Footwear</option>
-            <option>Beauty</option>
-            <option>Jewellery</option>
-            <option>Technology</option>
-            <option>Books</option>
-            <option>Children</option>
-            <option>Other</option>,
+            <option value="men's clothing">Men's Clothing</option>
+            <option value="beauty">Beauty</option>
+            <option value="jewelery">Jewelery</option>
+            <option value="electronics">Electronics</option>
+            <option value="women's clothing">Women's Clothing</option>
+            <option value="children">Children</option>
+            <option value="other">Other</option>,
           </select> 
         </div>
 
@@ -121,3 +128,4 @@ export const AddForm = () => {
     </main>
   );
 }
+

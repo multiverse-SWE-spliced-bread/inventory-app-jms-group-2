@@ -23,16 +23,28 @@ export const Items = () => {
     console.log(data.title)
     setAllItems([])
 
+
   }
 
-  useEffect(() => {
-    itemsList();
-	}, []);
+  function deleteItem (id) {
+        await fetch(`http://localhost:3000/items/${id}`, {
+          method: 'DELETE'
+        })
+        setItem([])
+        itemsList()
+    }
+
+
+    useEffect(() => {
+		itemsList();
+}, []);
 
 
   return (
+
     <div>
       {allItems.map(items => <div onClick={() => oneItem(items.id)}><br></br>{items.title}<br></br>{items.price}</div>)}
+      {allItems.map(items => <button className='items' onClick={() => deleteItem(items.id)}>Delete this item</button>)}
       <div
         className='title'>{Item.title}
       </div>
@@ -55,4 +67,6 @@ export const Items = () => {
     </div>
   )
 }
+
+    
 

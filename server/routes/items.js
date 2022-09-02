@@ -19,6 +19,25 @@ itemsRouter.post("/", async (req, res) => {
     await Items.create(req.body)
     res.send("Item created")
 })
+
+// DESTROY /items/:id
+itemsRouter.delete("/:id", async (req, res) => {
+    await Items.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    res.send("item deleted")
+})
+// UPDATE / items/:id
+itemsRouter.put("/:id", async (req, res) => {
+    await Items.set(req.body, {
+        where: {
+            id: req.params.id
+        }
+    })
+    res.send("item updated")
+})
 module.exports = itemsRouter
 
 
