@@ -29,6 +29,15 @@ itemsRouter.delete("/:id", async (req, res) => {
     })
     res.send("item deleted")
 })
+// UPDATE / items/:id
+itemsRouter.put("/:id", async (req, res) => {
+    await Items.put(req.body,{
+        where: {
+            id: req.params.id
+        }
+    })
+    res.send("item updated")
+})
 module.exports = itemsRouter
 
 
