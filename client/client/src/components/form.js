@@ -96,28 +96,26 @@ export const AddForm = () => {
 
         {/* Quality of item selection radios */}
         <div> 
-        <input type='radio' className='radioGroup'/>
-        <label>New</label>
+          <input type='radio' className='radioGroup'/>
+          <label>New</label>
         </div>
 
         <div> 
-        <input type='radio' className='radioGroup'/>
-        <label>Like New</label>
+          <input type='radio' className='radioGroup'/>
+          <label>Like New</label>
         </div>
 
         <div> 
-        <input type='radio' className='radioGroup'/>
-        <label>Used</label>
+          <input type='radio' className='radioGroup'/>
+          <label>Used</label>
         </div>
 
         <label>
         The information above is correct.
         <input type='checkbox' value= {tickedCheckbox} onChange ={e => setTickedCheckbox(true)}/><br></br>
-      </label>
+        </label>
 
-
-
-        <button onClick={pageSubmitted}>Submit</button>
+      <button onClick={pageSubmitted}>Submit</button>
 
       </form>
     </main>

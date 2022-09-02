@@ -1,5 +1,6 @@
 import React, { useEffect, useState} from 'react';
 
+
 export const Items = () => {
 
   const [allItems, setAllItems] = useState([])
@@ -27,17 +28,17 @@ export const Items = () => {
   useEffect(() => {
     itemsList();
 	}, []);
-    
+
 
   return (
     <div>
-        {/* system message: fullItems.js is connected!  */}
-      {allItems.map(items => <div onClick={() => oneItem(items.id)}>{items.image}<br></br>{items.title}<br></br>{items.price}</div>)}
+      {/* system message: the client is connected! */}
+      {allItems.map(items => <div onClick={() => oneItem(items.id)}><br></br>{items.title}<br></br>{items.price}</div>)}
       <div className='title'>{Item.title}</div>
-      <div className='description'>{Item.description}</div>
       <div className='price'>{Item.price}</div>
+      <img src={Item.image} height='320' width='200'/>
+      <div className='description'>{Item.description}</div>
       <div className='category'>{Item.category}</div>
-      <div className='image'>{Item.image}</div>
       <button onClick={() => itemsList()}>Go Back</button>
     </div>
   )
