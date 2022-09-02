@@ -43,8 +43,8 @@ export const Items = () => {
   return (
 
     <div>
-      {allItems.map(items => <div onClick={() => oneItem(items.id)}><br></br>{items.title}<br></br>{items.price}</div>)}
-      {allItems.map(items => <button className='items' onClick={() => deleteItem(items.id)}>Delete this item</button>)}
+      {allItems.map(items => <div onClick={() => oneItem(items.id)}><br></br>{items.title}<br></br>{items.price}<br></br><button className='items' onClick={() => deleteItem(items.id)}>Delete this item</button></div>)}
+      
       <div
         className='title'>{Item.title}
       </div>
