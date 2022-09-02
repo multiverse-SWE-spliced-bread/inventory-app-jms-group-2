@@ -35,6 +35,8 @@ export const Items = () => {
     }
 
 
+
+
     useEffect(() => {
 		itemsList();
 }, []);
@@ -60,10 +62,10 @@ export const Items = () => {
       </div>
 
       <div
-        className='category'>{Item.category}
+        className='category'>{Item.category} 
       </div>
       
-      <button onClick={() => itemsList()}>Go Back</button>
+      <button onClick={() => itemsList()}>Go Back Please</button>
     </div>
   )
 }
