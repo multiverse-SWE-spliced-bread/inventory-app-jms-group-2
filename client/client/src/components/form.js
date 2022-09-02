@@ -7,6 +7,10 @@ export const AddForm = () => {
   const [category, setCategory] = useState('')
   const [image, setImage] = useState('')
 
+  // extras
+  const [tickedCheckbox, setTickedCheckbox] = useState(false)
+
+
   const handleSubmit = (ev) => {
     ev.preventDefault()
     const postContent = async () => {
@@ -27,28 +31,38 @@ export const AddForm = () => {
     // setContent('')
   }
   
+  // Pop up page submitted alert
   function pageSubmitted() { 
     alert('Page submitted succesfully! :)')
   }
 
-
-        
-
+  // checked box
+  const checkBox = (props) => {
+    const tickedCheckbox = props.isChecked ?
+        "checkbox-marked" : "checkbox-blank-outline";
+  }
 
   return (
     <main>
       <form onSubmit={handleSubmit}>
         <h2>Inventory</h2>
-        <p>Please fill out this form</p>
+        <p>Please fill out the form below</p>
+
+        {/* Title box */}
+        <div>
+          <input type='text' placeholder='Title' value={title} onChange={e => setTitle(e.target.value)} required/>
+        </div>
+
+        <br></br>
 
         {/* Description box */}
         <div>
-          <input type='text' placeholder='Description' value={description} onChange={e => setDescription(e.target.value)}/>
+          <textarea type='text' placeholder='Description' value={description} wrap='hard' rows='5' onChange={e => setDescription(e.target.value)} required/>
         </div>
 
         {/* Price box */}
         <div>
-          <input type='text' placeholder='Price' value={price} onChange={e => setPrice(e.target.value)}/>
+          <input type='number' placeholder='£' value={price} onChange={e => setPrice(e.target.value)} required/>
         </div>
 
         {/* Select Category dropdown */}
@@ -65,16 +79,46 @@ export const AddForm = () => {
           </select> 
         </div>
 
-          {/* Select category box */}
+        {/* Select category box OLD*/}
         {/* <div>
           <input type='text' placeholder='Category' value={category} onChange={e => setCategory(e.target.value)}/>
         </div> */}
 
         <div>
-          <input type='text' placeholder='Image' value={image} onChange={e => setImage(e.target.value)}/>  
+          <input type='file' value={image} onChange={e => setImage(e.target.value)} required/>  
         </div>
 
+        {/* Select image box OLD*/}
+        {/* note: this is simply an input box, and doesnt allow the selection of an image */}
+        {/* <div>
+          <input type='text' placeholder='Image' value={image} onChange={e => setImage(e.target.value)}/>  
+        </div> */}
+
+        {/* Quality of item selection radios */}
+        <div> 
+        <input type='radio' className='radioGroup'/>
+        <label>New</label>
+        </div>
+
+        <div> 
+        <input type='radio' className='radioGroup'/>
+        <label>Like New</label>
+        </div>
+
+        <div> 
+        <input type='radio' className='radioGroup'/>
+        <label>Used</label>
+        </div>
+
+        <label>
+        The information above is correct.
+        <input type='checkbox' value= {tickedCheckbox} onChange ={e => setTickedCheckbox(true)}/><br></br>
+      </label>
+
+
+
         <button onClick={pageSubmitted}>Submit</button>
+
       </form>
     </main>
   );

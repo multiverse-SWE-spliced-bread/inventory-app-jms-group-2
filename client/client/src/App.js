@@ -7,9 +7,11 @@ function App() {
 
   return (
     <div>
-     <Items />
-     <button onClick={() => setForms(!forms)}>Click here to add new Item</button>
+      <h1>The JML Store</h1>
      {forms ? <AddForm /> : null}
+     <button onClick={() => setForms(!forms)}>Sell an item</button>
+     <Items />
+
      {/* <AddForm /> */}
     </div>
   )

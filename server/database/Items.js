@@ -15,6 +15,7 @@ const Items = db.define('items',{
     },
     category: {
         type: DataTypes.STRING,
+
     },
     image: {
         type: DataTypes.STRING

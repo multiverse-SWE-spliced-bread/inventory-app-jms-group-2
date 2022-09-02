@@ -11,9 +11,8 @@ app.use(express.json())
 app.use('/items', itemsRouter)
 
 
-
 app.get('/', (req, res) => {
-    res.send('Hello!')
+    res.send('system message: the server is connected')
 })
 
 
